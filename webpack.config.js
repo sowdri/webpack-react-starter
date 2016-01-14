@@ -69,11 +69,17 @@ if (TARGET === 'start' || !TARGET) {
       port: process.env.PORT
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+
     ]
   });
 }
 
 if (TARGET === 'build') {
-  module.exports = merge(common, {});
+  module.exports = merge(common, {
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production')
+      })]
+  });
 }
