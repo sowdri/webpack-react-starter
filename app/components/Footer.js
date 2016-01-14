@@ -6,11 +6,13 @@ export default class Footer extends Component {
       return name
     }
 
+    const clickHandler = e => {
+      e.preventDefault()
+      this.props.onFilterChange(filter)
+    };
+
     return (
-      <a href='#' onClick={ e => {
-                        e.preventDefault()
-                        this.props.onFilterChange(filter)
-                      } }>
+      <a href='#' onClick={ clickHandler }>
         { name }
       </a>
       )

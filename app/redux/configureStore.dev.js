@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
-import DevTools from '../components/DevTools';
+import DevTools from '../dev/DevTools';
 
 const finalCreateStore = compose(
   // Middleware you want to use in development:
