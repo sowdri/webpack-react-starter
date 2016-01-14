@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
-import rootReducer from '../reducers';
+import rootReducer from '../redux/reducers';
 import DevTools from '../dev/DevTools';
 
 const finalCreateStore = compose(
@@ -24,7 +24,7 @@ export default function configureStore(initialState) {
 
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
   if (module.hot) {
-    module.hot.accept('../reducers', () => store.replaceReducer(require('../reducers') /*.default if you use Babel 6+ */ )
+    module.hot.accept('../redux/reducers', () => store.replaceReducer(require('../redux/reducers') /*.default if you use Babel 6+ */ )
     );
   }
 
