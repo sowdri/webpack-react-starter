@@ -48,9 +48,9 @@ function todos(state = [], action) {
   }
 }
 
-const todoApp = combineReducers({
+const reducers = {
   visibilityFilter,
   todos
-})
+}
 
-export default todoApp
+export default reducers

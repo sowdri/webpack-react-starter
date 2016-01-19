@@ -6,12 +6,13 @@ import Nested from './Nested'
 import NotFound from './NotFound'
 
 import { Router, Route, Link } from 'react-router'
+import history from '../history';
 
 export default class App extends Component {
   render() {
 
     return (
-      <Router>
+      <Router history={ history }>
         <Route path="/" component={ TodoApp }>
           <Route path="page1" component={ Page1 } />
           <Route path="page2" component={ Page2 }>
