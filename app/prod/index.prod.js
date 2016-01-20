@@ -8,6 +8,7 @@ import todoApp from '../redux/reducers'
 let store = createStore(todoApp)
 
 let rootElement = document.getElementById('app')
+
 render(
   <Provider store={ store }>
     <App />

@@ -13,17 +13,6 @@ class TodoApp extends Component {
     const {dispatch, visibleTodos, visibilityFilter} = this.props
     return (
       <div>
-        <ul>
-          <li>
-            <Link to="/page1">Page1</Link>
-          </li>
-          <li>
-            <Link to="/page2">Page2</Link>
-          </li>
-          <li>
-            <Link to="/page2/nested">Page2 Nested</Link>
-          </li>
-        </ul>
         <AddTodo onAddClick={ text => dispatch(addTodo(text)) } />
         <TodoList todos={ visibleTodos } onTodoClick={ id => dispatch(completeTodo(id)) } />
         <Footer filter={ visibilityFilter } onFilterChange={ nextFilter => dispatch(setVisibilityFilter(nextFilter)) } />
