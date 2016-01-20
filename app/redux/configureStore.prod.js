@@ -1,5 +1,14 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import rootReducer from '../redux/reducers';
+import { syncHistory, routeReducer } from 'redux-simple-router'
+
+import history from '../history';
+const reduxRouterMiddleware = syncHistory(history)
+
+const reducer = combineReducers(Object.assign({}, rootReducer, {
+  routing: routeReducer
+}));
+
 
 const finalCreateStore = compose(
   // Middleware you want to use in production:
@@ -8,5 +17,5 @@ const finalCreateStore = compose(
 )(createStore);
 
 export default function configureStore(initialState) {
-  return finalCreateStore(rootReducer, initialState);
+  return finalCreateStore(reducer, initialState);
 }

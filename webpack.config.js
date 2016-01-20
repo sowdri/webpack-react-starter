@@ -29,9 +29,9 @@ const common = {
       {
         // Test expects a RegExp! Note the slashes!
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loaders: ['style', 'css']
         // Include accepts either a path or an array of paths.
-        include: PATHS.app
+
       }, {
         test: /\.jsx?$/,
         // Enable caching for improved performance during development
@@ -39,6 +39,21 @@ const common = {
         // more custom, pass a path to it. I.e., babel?cacheDirectory=<path>
         loaders: ['babel?cacheDirectory'],
         include: PATHS.app
+      }, {
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/font-woff"
+      }, {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/font-woff"
+      }, {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/octet-stream"
+      }, {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file"
+      }, {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=image/svg+xml"
       }
     ]
   },
@@ -47,6 +62,9 @@ const common = {
       template: 'index.html',
       title: 'Kanban app',
       appMountId: 'app'
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery"
     })
   ]
 };
