@@ -5,7 +5,7 @@
       "table": "report_site_domain_creative_tag",
       "primaryFilters": {
         "dsp": ["appnexus"],
-        "data_level": ["campaign"],
+        "dataLevel": ["campaign"],
         "channel": ["display"],
         "campaignState": ["mid_campaign"],
       },
