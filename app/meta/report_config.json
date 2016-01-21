@@ -1,0 +1,151 @@
+{
+  "reports": [
+    {
+      "name": "Site Domain Creative Tag (Campaign)",
+      "table": "report_site_domain_creative_tag",
+      "primaryFilters": {
+        "dsp": ["appnexus"],
+        "dataLevel": ["campaign"],
+        "channels": ["display"],
+        "campaignState": ["mid_campaign"],
+      },
+      "secondaryFilters": ["advertiser_id", "date_range"],
+      "tertiaryFilters": ["insertion_order_id", "line_item_id", "campaign_id"],
+      "dimensionGroups": [
+        {
+          "label": "Interval",
+          "selection": "SINGLE",
+          "dimensions": [
+            {
+              "label": "Day",
+              "column": "dayserial_numeric",
+              "aias": "day"
+            },
+            {
+              "label": "Month",
+              "column": "month",
+              "aias": "month"
+            }
+          ]
+        },
+        {
+          "label": "Rest of them",
+          "selection": "MULTIPLE",
+          "dimensions": [
+            {
+              "column": "insertion_order_id",
+              "alias": "Insertion Order"
+            }, {
+              "column": "campaign_id",
+              "alias": "Campaign Id"
+            },
+            {
+              "alias": "Insertion Order",
+              "column": "concat(line_item_name, “ (”, line_item_id, “)”)",
+            },
+            {
+              "alias": "Month",
+              "column": "month"
+            }
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Impressions",
+          "alias": "imps",
+          "column": "impressions",
+          "aggregate": "sum"
+        },
+        {
+          "alias": "Clicks",
+          "column": "clicks",
+          "aggregate": "sum"
+        },
+        {
+
+          "alias": "CPM",
+          "column": "sum(buyer_spend)/sum(impressions)*1000"
+        }
+      ]
+    },
+    {
+      "name": "Site Domain Creative Tag (Network)",
+      "table": "report_site_domain_creative_tag",
+      "primaryFilters": {
+        "dsp": ["appnexus"],
+        "dataLevel": ["network"],
+        "channels": ["display"],
+        "campaignState": ["mid_campaign"],
+      },
+      "secondaryFilters": ["country", "category", "date_range"],
+      "tertiaryFilters": ["insertion_order_id", "line_item_id", "campaign_id"],
+      "dimensionGroups": [
+        {
+          "label": "Interval",
+          "selection": "SINGLE",
+          "dimensions": [
+            {
+              "label": "Day",
+              "column": "dayserial_numeric",
+              "aias": "day"
+            },
+            {
+              "label": "Month",
+              "column": "month",
+              "aias": "month"
+            }
+          ]
+        },
+        {
+          "label": "Rest of them",
+          "selection": "MULTIPLE",
+          "dimensions": [
+            {
+              "column": "insertion_order_id",
+              "alias": "Insertion Order"
+            }, {
+              "column": "campaign_id",
+              "alias": "Campaign Id"
+            },
+            {
+              "alias": "Insertion Order",
+              "column": "concat(line_item_name, “ (”, line_item_id, “)”)",
+            },
+            {
+              "alias": "Month",
+              "column": "month"
+            }
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "label": "Impressions",
+          "alias": "imps",
+          "column": "impressions",
+          "aggregate": "sum"
+        },
+        {
+          "alias": "Clicks",
+          "column": "clicks",
+          "aggregate": "sum"
+        },
+        {
+
+          "alias": "CPM",
+          "column": "sum(buyer_spend)/sum(impressions)*1000"
+        }
+      ]
+    },
+    {
+      "name": "Site Domain Impressions",
+      "table": "report_site_domain_impressions",
+      "dsp": ["appnexus", "mediamath"],
+      "dataLevel": ["campaign"],
+      "channels": ["display"],
+      "campaignState": ["running"],
+
+    }
+  ]
+}
