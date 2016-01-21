@@ -1,0 +1,156 @@
+{
+  "filters": [
+    {
+      "name": "dsp",
+      "label": "DSP",
+      "parameter": "dsp",
+      "source": "static",
+      "type": "single_select",
+      "values": [
+        {
+          "label": "Appnexus",
+          "value": "appnexus"
+        },
+        {
+          "label": "Mediamath",
+          "value": "mediamath"
+        },
+        {
+          "label": "Double Click",
+          "value": "dbm"
+        }
+      ]
+    },
+    {
+      "name": "data_level",
+      "label": "Data Level",
+      "parameter": "data_level",
+      "source": "static",
+      "type": "single_select",
+      "values": [
+        {
+          "label": "Campaign",
+          "value": "campaign"
+        },
+        {
+          "label": "Network Level",
+          "value": "network"
+        }
+      ]
+    },
+    {
+      "name": "channel",
+      "label": "Channels",
+      "parameter": "channel",
+      "source": "static",
+      "type": "single_select",
+      "values": [
+        {
+          "label": "Display",
+          "value": "display"
+        },
+        {
+          "label": "Video",
+          "value": "video"
+        }
+      ]
+    },
+    {
+      "name": "campaign_state",
+      "label": "Campaign State",
+      "parameter": "campaign_state",
+      "source": "static",
+      "type": "single_select",
+      "values": [
+        {
+          "label": "Pre-Campaign",
+          "value": "pre_campaign"
+        },
+        {
+          "label": "Mid-Campaign",
+          "value": "mid_campaign"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "label": "Category",
+      "parameter": "category",
+      "source": "query",
+      "type": "single_select",
+      "query": "category_query.sql"
+    },
+    {
+      "name": "advertiser_id",
+      "label": "Advertiser",
+      "parameter": "advertiser_id",
+      "source": "query",
+      "type": "single_select",
+      "query": "advertiser_query.sql"
+    },
+    {
+      "name": "io_id",
+      "label": "Insertion Order",
+      "parameter": "io_id",
+      "source": "query",
+      "type": "multi_select",
+      "query": "insertion_order_query.sql"
+    },
+    {
+      "name": "creative_id",
+      "label": "Creative",
+      "parameter": "creative_id",
+      "source": "query",
+      "type": "multi_select",
+      "query": "creative_query.sql"
+    },
+    {
+      "name": "width",
+      "label": "Width",
+      "parameter": "width",
+      "source": "query",
+      "type": "multi_select",
+      "query": "width_query.sql"
+    },
+    {
+      "name": "height",
+      "label": "Height",
+      "parameter": "height",
+      "source": "query",
+      "type": "multi_select",
+      "query": "height_query.sql"
+    },
+    {
+      "name": "campaign_id",
+      "label": "Campaign",
+      "parameter": "campaign_id",
+      "source": "query",
+      "type": "multi_select",
+      "query": "campaign_query.sql"
+    },
+    {
+      "name": "seller_member_id",
+      "label": "Seller Member",
+      "parameter": "seller_member_id",
+      "source": "query",
+      "type": "multi_select",
+      "query": "seller_member_query.sql"
+    },
+    {
+      "name": "pixel_id",
+      "label": "Pixel",
+      "parameter": "pixel_id",
+      "source": "query",
+      "type": "multi_select",
+      "query": "pixel_query.sql"
+    },
+    {
+      "name": "target_strategy",
+      "label": "Target Strategy",
+      "parameter": "target_strategy",
+      "source": "query",
+      "type": "multi_select",
+      "query": "target_strategy_query.sql"
+    }
+  ]
+}

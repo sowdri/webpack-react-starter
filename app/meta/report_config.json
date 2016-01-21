@@ -5,8 +5,8 @@
       "table": "report_site_domain_creative_tag",
       "primaryFilters": {
         "dsp": ["appnexus"],
-        "dataLevel": ["campaign"],
-        "channels": ["display"],
+        "data_level": ["campaign"],
+        "channel": ["display"],
         "campaignState": ["mid_campaign"],
       },
       "secondaryFilters": ["advertiser_id", "date_range"],
@@ -75,7 +75,7 @@
       "primaryFilters": {
         "dsp": ["appnexus"],
         "dataLevel": ["network"],
-        "channels": ["display"],
+        "channel": ["display"],
         "campaignState": ["mid_campaign"],
       },
       "secondaryFilters": ["country", "category", "date_range"],
@@ -143,7 +143,7 @@
       "table": "report_site_domain_impressions",
       "dsp": ["appnexus", "mediamath"],
       "dataLevel": ["campaign"],
-      "channels": ["display"],
+      "channel": ["display"],
       "campaignState": ["running"],
 
     }

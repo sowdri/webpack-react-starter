@@ -1,0 +1,1 @@
+select advertiser_id, name as advertiser_name from advertiser_category group by 1,2

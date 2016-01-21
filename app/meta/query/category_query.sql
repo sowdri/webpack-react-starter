@@ -1,0 +1,1 @@
+SELECT DISTINCT category FROM advertiser_category order by category

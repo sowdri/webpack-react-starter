@@ -1,0 +1,1 @@
+select id as value, name as label from creative where advertiser_id = {{advertiser_id}} group by 1,2
