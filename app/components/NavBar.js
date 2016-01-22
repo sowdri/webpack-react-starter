@@ -20,7 +20,7 @@ class NavBar extends Component {
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
               <ul className="nav navbar-nav">
                 <li>
-                  <Link to="/">Page1</Link>
+                  <Link to="/">Report</Link>
                 </li>
                 <li>
                   <Link to="/page2">Page2</Link>

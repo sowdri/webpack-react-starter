@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Filter from './filters/Filter';
+import PrimaryFilters from './filters/PrimaryFilters';
 
-class Page1 extends Component {
+class StandardReportForm extends Component {
 
   state = {
     
@@ -29,15 +30,15 @@ class Page1 extends Component {
     };
 
     return (
-      <Filter value={ filter } />
+      <PrimaryFilters />
       )
   }
 }
 
-Page1.propTypes = {
+StandardReportForm.propTypes = {
 };
 
-Page1.defaultProps = {
+StandardReportForm.defaultProps = {
 };
 
 
@@ -47,4 +48,4 @@ function select(state) {
   }
 }
 
-export default connect(select)(Page1)
+export default connect(select)(StandardReportForm)
