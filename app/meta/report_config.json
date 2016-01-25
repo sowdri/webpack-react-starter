@@ -9,7 +9,7 @@
         "channel": ["display"],
         "campaignState": ["pre_campaign"]
       },
-      "secondaryFilters": ["advertiser_id", "date_range"],
+      "secondaryFilters": ["category", "advertiser_id"],
       "tertiaryFilters": ["insertion_order_id", "line_item_id", "campaign_id"],
       "dimensionGroups": [
         {
@@ -78,7 +78,7 @@
         "channel": ["display"],
         "campaignState": ["mid_campaign"]
       },
-      "secondaryFilters": ["country", "category", "date_range"],
+      "secondaryFilters": ["country", "category"],
       "tertiaryFilters": ["insertion_order_id", "line_item_id", "campaign_id"],
       "dimensionGroups": [
         {

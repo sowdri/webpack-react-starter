@@ -108,15 +108,15 @@ function filters(state = {}, action) {
         ...state,
         primary: primary(state.primary, action)
       }
-    case 'UPDATE_SECONDARY_FILTERS':
+    case 'UPDATE_SECONDARY_FILTER':
       return {
-        secondary: secondary(state.secondary, action),
-        ...state
+        ...state,
+        secondary: secondary(state.secondary, action)
       }
     case 'UPDATE_TERTIARY_FILTER':
       return {
-        tertiary: tertiary(state.tertiary, action),
-        ...state
+        ...state,
+        tertiary: tertiary(state.tertiary, action)
       }
     default:
       return state;

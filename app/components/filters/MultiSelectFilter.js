@@ -1,20 +1,31 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import Select from 'react-select';
+import R from 'ramda';
 
 class MultiSelectFilter extends Component {
 
-  state = {
-    
-  };
-
   render() {
+    const {options, onChange, value} = this.props;
+
     return (
-      <div>MultiSelectFilter</div>
+      <div className="form-group">
+        <label>
+          { this.props.label }
+        </label>
+        <Select options={ options } multi={ true } onChange={ (selected) => onChange(R.pluck('value')(selected)) } value={ value } />
+      </div>
       )
   }
 }
 
 MultiSelectFilter.propTypes = {
+  label: React.PropTypes.string.isRequired,
+  value: React.PropTypes.array.isRequired,
+  name: React.PropTypes.string.isRequired,
+  parameter: React.PropTypes.string.isRequired,
+  options: React.PropTypes.array.isRequired,
+  onChange: React.PropTypes.func.isRequired
 };
 
 MultiSelectFilter.defaultProps = {
@@ -27,5 +38,4 @@ function select(state) {
   }
 }
 
-// export default connect(select)(MultiSelectFilter)
 export default MultiSelectFilter

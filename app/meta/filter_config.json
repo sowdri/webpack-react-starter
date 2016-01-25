@@ -76,9 +76,19 @@
       "name": "category",
       "label": "Category",
       "parameter": "category",
-      "source": "query",
-      "type": "single_select",
-      "query": "category_query.sql"
+      "source": "static",
+      "type": "multi_select",
+      "query": "category_query.sql",
+      "options": [
+        {
+          "label": "Pre-Campaign",
+          "value": "pre_campaign"
+        },
+        {
+          "label": "Mid-Campaign",
+          "value": "mid_campaign"
+        }
+      ]
     },
     {
       "name": "advertiser_id",
