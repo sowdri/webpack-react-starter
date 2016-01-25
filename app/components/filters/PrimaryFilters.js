@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Filter from './Filter';
-import filterConfig from '../../meta/filterconfig.json';
+import filterConfig from '../../meta/filter_config.json';
 import R from 'ramda';
 import SectionHeader from '../SectionHeader';
 import { updatePrimaryFilter } from '../../redux/actions'

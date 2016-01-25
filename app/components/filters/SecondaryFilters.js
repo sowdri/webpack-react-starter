@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Filter from './Filter';
 import ReportFilter from './ReportFilter';
-import filterConfig from '../../meta/filterconfig.json';
+import filterConfig from '../../meta/filter_config.json';
 import reportConfig from '../../meta/report_config.json';
 import R from 'ramda';
 import SectionHeader from '../SectionHeader';
@@ -38,7 +38,14 @@ SecondaryFilters.defaultProps = {
 
 
 function select(state) {
-  return R.pathOr({}, ['standardReport', 'filters', 'primary'], state);
+
+  const primaryFilters = R.pathOr({}, ['standardReport', 'filters', 'primary'], state);
+  const report = R.pathOr({}, ['standardReport', 'report'], state);
+
+  return {
+    ...primaryFilters,
+    report
+  };
 }
 
 export default connect(select)(SecondaryFilters)

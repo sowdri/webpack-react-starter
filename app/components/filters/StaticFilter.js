@@ -34,7 +34,7 @@ StaticFilter.propTypes = {
   name: React.PropTypes.string.isRequired,
   parameter: React.PropTypes.string.isRequired,
   type: React.PropTypes.oneOf(['single_select', 'multi_select']).isRequired,
-  values: React.PropTypes.array.isRequired,
+  options: React.PropTypes.array.isRequired,
   onChange: React.PropTypes.func.isRequired
 };
 

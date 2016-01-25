@@ -12,24 +12,6 @@ class StandardReportForm extends Component {
 
   render() {
 
-    const filter = {
-      "name": "campaign_state",
-      "label": "Campaign State",
-      "parameter": "campaign_state",
-      "source": "static",
-      "type": "single_select",
-      "values": [
-        {
-          "label": "Pre-Campaign",
-          "value": "pre_campaign"
-        },
-        {
-          "label": "Mid-Campaign",
-          "value": "mid_campaign"
-        }
-      ]
-    };
-
     return (
       <div>
         <PrimaryFilters />

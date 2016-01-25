@@ -18,6 +18,7 @@ class Filter extends Component {
   }
 
   getFilterBySource(source, props) {
+
     switch (source) {
       case 'static':
         return <StaticFilter {...props} />
@@ -38,7 +39,7 @@ Filter.propTypes = {
   source: React.PropTypes.oneOf(['static', 'query']).isRequired,
   type: React.PropTypes.oneOf(['single_select', 'multi_select']).isRequired,
   onChange: React.PropTypes.func.isRequired,
-  values: React.PropTypes.array,
+  options: React.PropTypes.array,
   query: React.PropTypes.string
 }
 

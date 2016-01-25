@@ -6,7 +6,7 @@
       "parameter": "dsp",
       "source": "static",
       "type": "single_select",
-      "values": [
+      "options": [
         {
           "label": "Appnexus",
           "value": "appnexus"
@@ -27,7 +27,7 @@
       "parameter": "data_level",
       "source": "static",
       "type": "single_select",
-      "values": [
+      "options": [
         {
           "label": "Campaign",
           "value": "campaign"
@@ -44,7 +44,7 @@
       "parameter": "channel",
       "source": "static",
       "type": "single_select",
-      "values": [
+      "options": [
         {
           "label": "Display",
           "value": "display"
@@ -61,7 +61,7 @@
       "parameter": "campaign_state",
       "source": "static",
       "type": "single_select",
-      "values": [
+      "options": [
         {
           "label": "Pre-Campaign",
           "value": "pre_campaign"
