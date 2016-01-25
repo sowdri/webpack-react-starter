@@ -6,6 +6,10 @@ export const ADD_TODO = 'ADD_TODO'
 export const COMPLETE_TODO = 'COMPLETE_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
+export const UPDATE_PRIMARY_FILTER = 'UPDATE_PRIMARY_FILTER';
+export const UPDATE_SECONDARY_FILTER = 'UPDATE_SECONDARY_FILTER';
+export const UPDATE_TERTIARY_FILTER = 'UPDATE_TERTIARY_FILTER';
+
 /*
  * other constants
  */
@@ -41,5 +45,32 @@ export function setVisibilityFilter(filter) {
   return {
     type: SET_VISIBILITY_FILTER,
     filter
+  }
+}
+
+export function updatePrimaryFilter(parameter, value, selectionType) {
+  return {
+    type: UPDATE_PRIMARY_FILTER,
+    parameter,
+    value,
+    selectionType
+  }
+}
+
+export function updateSecondaryFilter(parameter, value, selectionType) {
+  return {
+    type: UPDATE_SECONDARY_FILTER,
+    parameter,
+    value,
+    selectionType
+  }
+}
+
+export function updateTertiaryFilter(parameter, value, selectionType) {
+  return {
+    type: UPDATE_TERTIARY_FILTER,
+    parameter,
+    value,
+    selectionType
   }
 }

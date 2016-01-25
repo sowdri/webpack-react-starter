@@ -36,6 +36,7 @@ Filter.propTypes = {
   parameter: React.PropTypes.string.isRequired,
   source: React.PropTypes.oneOf(['static', 'query']).isRequired,
   type: React.PropTypes.oneOf(['single_select', 'multi_select']).isRequired,
+  onChange: React.PropTypes.func.isRequired,
   values: React.PropTypes.array,
   query: React.PropTypes.string
 }
