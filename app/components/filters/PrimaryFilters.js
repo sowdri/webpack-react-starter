@@ -13,13 +13,12 @@ class PrimaryFilters extends Component {
 
   render() {
 
-    const {dispatch} = this.props;
+    const {dsp, data_level, channel, campaign_state, dispatch} = this.props;
 
-
-    const dsp = R.find(R.propEq('name', 'dsp'))(filterConfig.filters);
-    const dataLevel = R.find(R.propEq('name', 'data_level'))(filterConfig.filters);
-    const channel = R.find(R.propEq('name', 'channel'))(filterConfig.filters);
-    const campaignState = R.find(R.propEq('name', 'campaign_state'))(filterConfig.filters);
+    const dspFilter = R.find(R.propEq('name', 'dsp'))(filterConfig.filters);
+    const dataLevelFilter = R.find(R.propEq('name', 'data_level'))(filterConfig.filters);
+    const channelFilter = R.find(R.propEq('name', 'channel'))(filterConfig.filters);
+    const campaignStateFilter = R.find(R.propEq('name', 'campaign_state'))(filterConfig.filters);
 
     const onChange = (parameter, value, type) => {
       dispatch(updatePrimaryFilter(parameter, value, type));
@@ -29,16 +28,16 @@ class PrimaryFilters extends Component {
       <div className="row">
         <SectionHeader title='Primary Filters' />
         <div className="col-md-3">
-          <Filter {...dsp} onChange={ R.curry(onChange)(dsp.parameter, R.__, dsp.type) } />
+          <Filter {...dspFilter} onChange={ R.curry(onChange)(dspFilter.parameter, R.__, dspFilter.type) } value={ dsp } />
         </div>
         <div className="col-md-3">
-          <Filter {...dataLevel} onChange={ R.curry(onChange)(dataLevel.parameter, R.__, dataLevel.type) } />
+          <Filter {...dataLevelFilter} onChange={ R.curry(onChange)(dataLevelFilter.parameter, R.__, dataLevelFilter.type) } value={ data_level } />
         </div>
         <div className="col-md-3">
-          <Filter {...channel} onChange={ R.curry(onChange)(channel.parameter, R.__, channel.type) } />
+          <Filter {...channelFilter} onChange={ R.curry(onChange)(channelFilter.parameter, R.__, channelFilter.type) } value={ channel } />
         </div>
         <div className="col-md-3">
-          <Filter {...campaignState} onChange={ R.curry(onChange)(campaignState.parameter, R.__, campaignState.type) } />
+          <Filter {...campaignStateFilter} onChange={ R.curry(onChange)(campaignStateFilter.parameter, R.__, campaignStateFilter.type) } value={ campaign_state } />
         </div>
       </div>
       )
@@ -53,9 +52,8 @@ PrimaryFilters.defaultProps = {
 
 
 function select(state) {
-  return {
-    ...state
-  }
+  return R.pathOr({}, ['standardReport', 'filters', 'primary'], state);
 }
+
 
 export default connect(select)(PrimaryFilters)

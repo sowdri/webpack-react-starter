@@ -28,7 +28,7 @@ class ReportFilter extends Component {
   /**
    * Filters the reports that match the primary filter selection, and returns a filterConfig that contains the reports as values.
    */
-  getReportFilter({dsp, data_level, channel, campaign_state}) {
+  getReportFilter({dsp, data_level, channel, campaign_state, report}) {
 
     // filter report that matches the above selection
     var predicate = (report) => {
@@ -49,15 +49,25 @@ class ReportFilter extends Component {
       }
     });
 
+    /**
+     * If a report is already selected, then set that as the selected index for the filter
+     */
+    var value = function() {
+      if (report)
+        return '' + R.findIndex(R.propEq('label', report.name))(reportNames);
+      return '';
+    }();
+
     // get the reports and create a static filter
     // create callback and render filter.
     return {
-      "name": "report",
-      "label": "Report",
-      "parameter": "report",
-      "source": "static",
-      "type": "single_select",
-      "values": reportNames
+      label: "Report",
+      value,
+      name: "report",
+      parameter: "report",
+      source: "static",
+      type: "single_select",
+      values: reportNames
     };
   }
 }
@@ -70,7 +80,13 @@ ReportFilter.defaultProps = {
 
 
 function select(state) {
-  return R.pathOr({}, ['standardReport', 'filters', 'primary'], state);
+  const primaryFilters = R.pathOr({}, ['standardReport', 'filters', 'primary'], state);
+  const report = R.pathOr({}, ['standardReport', 'report'], state);
+
+  return {
+    ...primaryFilters,
+    report
+  };
 }
 
 export default connect(select)(ReportFilter)

@@ -29,8 +29,9 @@ class StaticFilter extends Component {
 }
 
 StaticFilter.propTypes = {
-  name: React.PropTypes.string.isRequired,
   label: React.PropTypes.string.isRequired,
+  value: React.PropTypes.string.isRequired,
+  name: React.PropTypes.string.isRequired,
   parameter: React.PropTypes.string.isRequired,
   type: React.PropTypes.oneOf(['single_select', 'multi_select']).isRequired,
   values: React.PropTypes.array.isRequired,

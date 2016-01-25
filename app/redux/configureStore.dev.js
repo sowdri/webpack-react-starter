@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import { persistState } from 'redux-devtools';
+// import { persistState } from 'redux-devtools';
+import persistState from 'redux-localstorage';
 import rootReducer from '../redux/reducers';
 import DevTools from '../components/DevTools';
 

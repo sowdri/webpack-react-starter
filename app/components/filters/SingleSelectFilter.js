@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class SingleSelectFilter extends Component {
 
   render() {
-    const {values, onChange} = this.props;
+    const {values, onChange, value} = this.props;
 
     const options = values.map(function(item, i) {
       return <option key={ i } value={ item.value }>
@@ -17,7 +17,7 @@ class SingleSelectFilter extends Component {
         <label>
           { this.props.label }
         </label>
-        <select className="form-control" onChange={ (event) => onChange(event.target.value) }>
+        <select className="form-control" onChange={ (event) => onChange(event.target.value) } value={ value }>
           <option value=''></option>
           { options }
         </select>
@@ -27,8 +27,9 @@ class SingleSelectFilter extends Component {
 }
 
 SingleSelectFilter.propTypes = {
-  name: React.PropTypes.string.isRequired,
   label: React.PropTypes.string.isRequired,
+  value: React.PropTypes.string.isRequired,
+  name: React.PropTypes.string.isRequired,
   parameter: React.PropTypes.string.isRequired,
   values: React.PropTypes.array.isRequired,
   onChange: React.PropTypes.func.isRequired

@@ -31,8 +31,9 @@ class Filter extends Component {
 
 
 Filter.propTypes = {
-  name: React.PropTypes.string.isRequired,
   label: React.PropTypes.string.isRequired,
+  value: React.PropTypes.string.isRequired,
+  name: React.PropTypes.string.isRequired,
   parameter: React.PropTypes.string.isRequired,
   source: React.PropTypes.oneOf(['static', 'query']).isRequired,
   type: React.PropTypes.oneOf(['single_select', 'multi_select']).isRequired,
