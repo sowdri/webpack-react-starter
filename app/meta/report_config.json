@@ -7,7 +7,7 @@
         "dsp": ["appnexus"],
         "dataLevel": ["campaign"],
         "channel": ["display"],
-        "campaignState": ["mid_campaign"],
+        "campaignState": ["pre_campaign"]
       },
       "secondaryFilters": ["advertiser_id", "date_range"],
       "tertiaryFilters": ["insertion_order_id", "line_item_id", "campaign_id"],
@@ -41,7 +41,7 @@
             },
             {
               "alias": "Insertion Order",
-              "column": "concat(line_item_name, “ (”, line_item_id, “)”)",
+              "column": "concat(line_item_name, “ (”, line_item_id, “)”)"
             },
             {
               "alias": "Month",
@@ -76,7 +76,7 @@
         "dsp": ["appnexus"],
         "dataLevel": ["network"],
         "channel": ["display"],
-        "campaignState": ["mid_campaign"],
+        "campaignState": ["mid_campaign"]
       },
       "secondaryFilters": ["country", "category", "date_range"],
       "tertiaryFilters": ["insertion_order_id", "line_item_id", "campaign_id"],
@@ -110,7 +110,7 @@
             },
             {
               "alias": "Insertion Order",
-              "column": "concat(line_item_name, “ (”, line_item_id, “)”)",
+              "column": "concat(line_item_name, “ (”, line_item_id, “)”)"
             },
             {
               "alias": "Month",
@@ -137,15 +137,6 @@
           "column": "sum(buyer_spend)/sum(impressions)*1000"
         }
       ]
-    },
-    {
-      "name": "Site Domain Impressions",
-      "table": "report_site_domain_impressions",
-      "dsp": ["appnexus", "mediamath"],
-      "dataLevel": ["campaign"],
-      "channel": ["display"],
-      "campaignState": ["running"],
-
     }
   ]
 }

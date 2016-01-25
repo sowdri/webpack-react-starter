@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Filter from './filters/Filter';
 import PrimaryFilters from './filters/PrimaryFilters';
+import SecondaryFilters from './filters/SecondaryFilters';
 
 class StandardReportForm extends Component {
 
@@ -30,7 +31,10 @@ class StandardReportForm extends Component {
     };
 
     return (
-      <PrimaryFilters />
+      <div>
+        <PrimaryFilters />
+        <SecondaryFilters />
+      </div>
       )
   }
 }

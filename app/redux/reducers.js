@@ -56,7 +56,12 @@ function primary(state = {}, action) {
 
   switch (action.type) {
     case 'UPDATE_PRIMARY_FILTER':
-      return R.set(R.lensProp(parameter), value, state);
+      return {
+        ...state,
+        ...{
+          [parameter]: value
+        }
+      };
     default:
       return state;
   }
@@ -67,7 +72,12 @@ function secondary(state = {}, action) {
 
   switch (action.type) {
     case 'UPDATE_SECONDARY_FILTER':
-      return R.set(R.lensProp(parameter), value, state);
+      return {
+        ...state,
+        ...{
+          [parameter]: value
+        }
+      };
     default:
       return state;
   }
@@ -79,7 +89,12 @@ function tertiary(state = {}, action) {
 
   switch (action.type) {
     case 'UPDATE_TERTIARY_FILTER':
-      return R.set(R.lensProp(parameter), value, state);
+      return {
+        ...state,
+        ...{
+          [parameter]: value
+        }
+      };
     default:
       return state;
   }
@@ -108,17 +123,21 @@ function filters(state = {}, action) {
   }
 }
 
-function standardReport(state = {}, action) {
+function report(state = {}, action) {
   switch (action.type) {
-    case 'UPDATE_PRIMARY_FILTER':
-    case 'UPDATE_SECONDARY_FILTERS':
-    case 'UPDATE_TERTIARY_FILTER':
-      return {
-        ...state,
-        'filters': filters(state.filters, action)
-      };
+    case 'SET_REPORT':
+      return action.report;
     default:
       return state;
+  }
+}
+
+function standardReport(state = {}, action) {
+
+  return {
+    ...state,
+    'filters': filters(state.filters, action),
+    'report': report(state.report, action)
   }
 }
 

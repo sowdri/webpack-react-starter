@@ -18,6 +18,7 @@ class SingleSelectFilter extends Component {
           { this.props.label }
         </label>
         <select className="form-control" onChange={ (event) => onChange(event.target.value) }>
+          <option value=''></option>
           { options }
         </select>
       </div>
@@ -43,4 +44,5 @@ function select(state) {
   }
 }
 
-export default connect(select)(SingleSelectFilter)
+// export default connect(select)(SingleSelectFilter)
+export default SingleSelectFilter

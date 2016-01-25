@@ -47,4 +47,5 @@ function select(state) {
   }
 }
 
-export default connect(select)(StaticFilter)
+export default StaticFilter
+// export default connect(select)(StaticFilter)

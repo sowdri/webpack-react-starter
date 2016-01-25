@@ -27,4 +27,5 @@ function select(state) {
   }
 }
 
-export default connect(select)(MultiSelectFilter)
+// export default connect(select)(MultiSelectFilter)
+export default MultiSelectFilter
