@@ -78,7 +78,25 @@
       "parameter": "category",
       "source": "static",
       "type": "multi_select",
-      "query": "category_query.sql",
+      "queryName": "category_query",
+      "options": [
+        {
+          "label": "Pre-Campaign",
+          "value": "pre_campaign"
+        },
+        {
+          "label": "Mid-Campaign",
+          "value": "mid_campaign"
+        }
+      ]
+    },
+    {
+      "name": "category_test",
+      "label": "Category",
+      "parameter": "category_test",
+      "source": "static",
+      "type": "multi_select",
+      "queryName": "category_query",
       "options": [
         {
           "label": "Pre-Campaign",
@@ -96,7 +114,7 @@
       "parameter": "advertiser_id",
       "source": "query",
       "type": "single_select",
-      "query": "advertiser_query.sql"
+      "queryName": "advertiser_query"
     },
     {
       "name": "io_id",
@@ -104,7 +122,7 @@
       "parameter": "io_id",
       "source": "query",
       "type": "multi_select",
-      "query": "insertion_order_query.sql"
+      "queryName": "insertion_order_query"
     },
     {
       "name": "creative_id",
@@ -112,7 +130,7 @@
       "parameter": "creative_id",
       "source": "query",
       "type": "multi_select",
-      "query": "creative_query.sql"
+      "queryName": "creative_query"
     },
     {
       "name": "width",
@@ -120,7 +138,7 @@
       "parameter": "width",
       "source": "query",
       "type": "multi_select",
-      "query": "width_query.sql"
+      "queryName": "width_query"
     },
     {
       "name": "height",
@@ -128,7 +146,7 @@
       "parameter": "height",
       "source": "query",
       "type": "multi_select",
-      "query": "height_query.sql"
+      "queryName": "height_query"
     },
     {
       "name": "campaign_id",
@@ -136,7 +154,7 @@
       "parameter": "campaign_id",
       "source": "query",
       "type": "multi_select",
-      "query": "campaign_query.sql"
+      "queryName": "campaign_query"
     },
     {
       "name": "seller_member_id",
@@ -144,7 +162,7 @@
       "parameter": "seller_member_id",
       "source": "query",
       "type": "multi_select",
-      "query": "seller_member_query.sql"
+      "queryName": "seller_member_query"
     },
     {
       "name": "pixel_id",
@@ -152,7 +170,7 @@
       "parameter": "pixel_id",
       "source": "query",
       "type": "multi_select",
-      "query": "pixel_query.sql"
+      "queryName": "pixel_query"
     },
     {
       "name": "target_strategy",
@@ -160,7 +178,7 @@
       "parameter": "target_strategy",
       "source": "query",
       "type": "multi_select",
-      "query": "target_strategy_query.sql"
+      "queryName": "target_strategy_query"
     }
   ]
 }

@@ -58,6 +58,10 @@ const common = {
       {
         test: /\.json$/,
         loaders: ['json']
+      },
+      {
+        test: /\.sql$/,
+        loaders: ['raw']
       }
     ]
   },
@@ -68,7 +72,8 @@ const common = {
       appMountId: 'app'
     }),
     new webpack.ProvidePlugin({
-      $: "jquery"
+      $: "jquery",
+      fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     })
   ]
 };

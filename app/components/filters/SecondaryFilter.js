@@ -13,7 +13,7 @@ class SecondaryFilter extends Component {
 
   render() {
 
-    const {name, report, dispatch, ...parameters} = this.props;
+    const {name, dispatch, ...parameters} = this.props;
 
     const onChange = (parameter, value, type) => {
       dispatch(updateSecondaryFilter(parameter, value, type));
@@ -28,7 +28,6 @@ class SecondaryFilter extends Component {
 
     // check if the value is already set in parameters
     const value = parameters[config.parameter];
-    console.log(config.parameter, value);
 
     return <Filter {...config} onChange={ R.curry(onChange)(config.parameter, R.__, config.type) } value={ value } />;
   }
@@ -45,10 +44,8 @@ SecondaryFilter.defaultProps = {
 
 function select(state) {
   const secondaryFilters = R.pathOr({}, ['standardReport', 'filters', 'secondary'], state);
-  const report = R.pathOr({}, ['standardReport', 'report'], state);
 
   return {
-    report,
     ...secondaryFilters
   };
 }

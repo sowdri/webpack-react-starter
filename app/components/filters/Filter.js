@@ -43,7 +43,7 @@ Filter.propTypes = {
   type: React.PropTypes.oneOf(['single_select', 'multi_select']).isRequired,
   onChange: React.PropTypes.func.isRequired,
   options: React.PropTypes.array,
-  query: React.PropTypes.string
+  queryName: React.PropTypes.string
 }
 
 Filter.defaultProps = {
