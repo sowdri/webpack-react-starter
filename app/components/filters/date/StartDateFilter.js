@@ -48,8 +48,8 @@ StartDateFilter.defaultProps = {
 
 
 function select(state) {
-  const startDate = (R.pathOr(undefined, ['standardReport', 'filters', 'secondary', 'start_date'], state));
-  const endDate = (R.pathOr(undefined, ['standardReport', 'filters', 'secondary', 'end_date'], state));
+  const startDate = (R.pathOr(moment(), ['standardReport', 'filters', 'secondary', 'start_date'], state));
+  const endDate = (R.pathOr(moment(), ['standardReport', 'filters', 'secondary', 'end_date'], state));
 
   return {
     startDate,

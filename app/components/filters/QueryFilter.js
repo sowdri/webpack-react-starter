@@ -16,12 +16,11 @@ class QueryFilter extends Component {
   };
 
   componentWillMount() {
-    console.log('componentWillMount');
+    // console.log('componentWillMount', this.props);
     this.getOptions();
   }
 
-  componentWillReceiveProps() {
-    console.log('componentWillReceiveProps');
+  componentWillReceiveProps(nextProps) {
     this.getOptions();
   }
 
@@ -40,6 +39,9 @@ class QueryFilter extends Component {
   getStatement(queryTemplate) {
 
     const {parameters} = this.props;
+
+    console.log(parameters);
+
     const requiredParams = this.getRequiredParams(queryTemplate);
 
     if (requiredParams.length == 0)
@@ -78,14 +80,18 @@ class QueryFilter extends Component {
     const statement = this.getStatement(queryTemplate);
 
     if (!statement) {
-      console.log(`Waiting for parameters to be resolved for template ${queryTemplate}`);
+      console.log(`Waiting for parameters to be resolved for template ${queryName}`);
       return;
     }
 
     if (this.state.statement == statement) {
-      console.log('statements are same');
       return;
     }
+
+    // clear options
+    this.setState({
+      options: []
+    });
 
     fetch('./api/filter', {
       method: 'post',
@@ -99,7 +105,6 @@ class QueryFilter extends Component {
     }).then(checkStatus)
       .then(parseJSON)
       .then((options) => {
-        console.log('request succeeded with JSON response', options)
         this.setState({
           options,
           statement
@@ -121,8 +126,6 @@ class QueryFilter extends Component {
   }
 
   render() {
-
-    console.log('render', this.props);
 
     const {type, ...rest} = this.props;
     const filter = this.getFilter(type, rest);
@@ -162,6 +165,3 @@ function select(state) {
 }
 
 export default connect(select)(QueryFilter)
-
-// export default QueryFilter
-// export default connect(select)(QueryFilter)

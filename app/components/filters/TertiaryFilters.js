@@ -11,32 +11,17 @@ import SecondaryFilter from './SecondaryFilter';
 import StartDateFilter from './date/StartDateFilter';
 import EndDateFilter from './date/EndDateFilter';
 
-class SecondaryFilters extends Component {
+class TertiaryFilters extends Component {
 
   render() {
 
     const {dsp, data_level, channel, campaign_state, report, dispatch} = this.props;
 
-    if (!(dsp && data_level && channel && campaign_state))
-      return <div></div>;
-
     var filterList = <div></div>;
 
+    if (R.has('tertiaryFilters')(report)) {
 
-    if (R.has('secondaryFilters')(report)) {
-
-      filterList = report.secondaryFilters.map((filterName, index) => {
-
-        if (filterName == 'date_range') {
-          return [
-            <div className="col-md-3" key='start_date'>
-              <StartDateFilter />
-            </div>,
-            <div className="col-md-3" key='end_date'>
-              <EndDateFilter />
-            </div>];
-        }
-
+      filterList = report.tertiaryFilters.map((filterName, index) => {
 
         return (<div className="col-md-3" key={ index }>
                   <SecondaryFilter name={ filterName } />
@@ -46,35 +31,33 @@ class SecondaryFilters extends Component {
 
       filterList = R.flatten(filterList);
 
+      if (filterList.length == 0)
+        return <div></div>;
+
       return (
         <div className="row">
           <br />
-          <SectionHeader title='Mandatory Filters' />
-          <div className="col-md-3">
-            <ReportFilter />
-          </div>
+          <SectionHeader title='Optional Filters' />
           { filterList }
         </div>
         )
     }
   }
 
-  SecondaryFilters.propTypes = {
+  TertiaryFilters.propTypes = {
   };
 
-  SecondaryFilters.defaultProps = {
+  TertiaryFilters.defaultProps = {
   };
 
 
   function select(state) {
 
-    const primaryFilters = R.pathOr({}, ['standardReport', 'filters', 'primary'], state);
     const report = R.pathOr({}, ['standardReport', 'report'], state);
 
     return {
-      ...primaryFilters,
       report
     };
   }
 
-  export default connect(select)(SecondaryFilters)
+  export default connect(select)(TertiaryFilters)

@@ -9,8 +9,8 @@
         "channel": ["display"],
         "campaignState": ["pre_campaign"]
       },
-      "secondaryFilters": ["category", "advertiser_id", "date_range", "io_id"],
-      "tertiaryFilters": ["insertion_order_id", "line_item_id", "campaign_id"],
+      "secondaryFilters": ["category", "advertiser_id", "date_range"],
+      "tertiaryFilters": ["io_id", "advertiser_id"],
       "dimensionGroups": [
         {
           "label": "Interval",
@@ -79,7 +79,7 @@
         "campaignState": ["mid_campaign"]
       },
       "secondaryFilters": ["country", "category"],
-      "tertiaryFilters": ["insertion_order_id", "line_item_id", "campaign_id"],
+      "tertiaryFilters": ["io_id", "line_item_id", "campaign_id"],
       "dimensionGroups": [
         {
           "label": "Interval",
