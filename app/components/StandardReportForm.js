@@ -22,6 +22,9 @@ class StandardReportForm extends Component {
         <TertiaryFilters />
         <Dimensions />
         <Metrics />
+        <br />
+        <br />
+        <br />
       </div>
       )
   }
