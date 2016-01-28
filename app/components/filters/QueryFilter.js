@@ -8,6 +8,66 @@ import S from 'string';
 
 const rg = /{{\s*(\w+)\s*}}/g;
 
+/**
+ * Parses the query and gets the required parameters from the template as an array.
+ */
+function getRequiredParameterNames(template) {
+
+  const params = [];
+
+  var matches;
+  while ((matches = rg.exec(template)) != null) {
+    params.push(matches[1]);
+  }
+
+  return params;
+}
+
+/**
+ * Function to take the tempalte and convert to statement that is executable.
+ *
+ * @return {string} 
+ *                  statement if all params are resolved.
+ *                  else return undefined.
+ */
+function getStatement(template, parameters) {
+
+  const required = getRequiredParameterNames(template);
+
+  if (required.length == 0)
+    return template;
+
+  // check if all params are present
+  for (var i = 0; i < required.length; i++) {
+    // if required parameter is not present in parameters, then return undefined.
+    if (!R.has(required[i])(parameters))
+      return;
+  }
+
+  // all required params are present, use handlebars and convert to statement.
+  return S(template).template(parameters).s;
+}
+
+/**
+ * Utility function for fetch request
+ */
+function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response
+  } else {
+    var error = new Error(response.statusText)
+    error.response = response
+    throw error
+  }
+}
+
+/**
+ * Utility function for fetch request
+ */
+function parseJSON(response) {
+  return response.json()
+}
+
 class QueryFilter extends Component {
 
   state = {
@@ -16,79 +76,31 @@ class QueryFilter extends Component {
   };
 
   componentWillMount() {
-    // console.log('componentWillMount', this.props);
-    this.getOptions();
+    this.getOptions(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.getOptions();
+    this.getOptions(nextProps);
   }
 
-  getRequiredParams(template) {
+  getOptions(props) {
 
-    const params = [];
+    const {queryName, parameters} = props;
 
-    var matches;
-    while ((matches = rg.exec(template)) != null) {
-      params.push(matches[1]);
-    }
+    const template = QueryIndex[queryName];
+    const statement = getStatement(template, parameters);
 
-    return params;
-  }
-
-  getStatement(queryTemplate) {
-
-    const {parameters} = this.props;
-
-    console.log(parameters);
-
-    const requiredParams = this.getRequiredParams(queryTemplate);
-
-    if (requiredParams.length == 0)
-      return queryTemplate;
-
-    // check if all params are present
-    for (var i = 0; i < requiredParams.length; i++) {
-      // if required parameter is not present in parameters, then return undefined.
-      if (!R.has(requiredParams[0])(parameters))
-        return;
-    }
-
-    // all required params are present, use handlebars and convert to statement.
-    return S(queryTemplate).template(parameters).s;
-  }
-
-  getOptions() {
-
-    function checkStatus(response) {
-      if (response.status >= 200 && response.status < 300) {
-        return response
-      } else {
-        var error = new Error(response.statusText)
-        error.response = response
-        throw error
-      }
-    }
-
-    function parseJSON(response) {
-      return response.json()
-    }
-
-    const {queryName} = this.props;
-    const queryTemplate = QueryIndex[queryName];
-
-    const statement = this.getStatement(queryTemplate);
-
+    // if statement is null, return
     if (!statement) {
       console.log(`Waiting for parameters to be resolved for template ${queryName}`);
       return;
     }
 
-    if (this.state.statement == statement) {
+    // if statement is same, then no-op
+    if (this.state.statement == statement)
       return;
-    }
 
-    // clear options
+    // clear options before running query
     this.setState({
       options: []
     });
