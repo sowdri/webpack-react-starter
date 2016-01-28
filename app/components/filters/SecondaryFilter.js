@@ -6,8 +6,7 @@ import filterConfig from '../../meta/filter_config.json';
 import reportConfig from '../../meta/report_config.json';
 import R from 'ramda';
 import SectionHeader from '../SectionHeader';
-import { setReport } from '../../redux/actions';
-import { updateSecondaryFilter } from '../../redux/actions';
+import { setReport, updateSecondaryFilter } from '../../redux/actions';
 
 class SecondaryFilter extends Component {
 

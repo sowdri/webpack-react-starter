@@ -11,41 +11,34 @@
       },
       "secondaryFilters": ["category", "advertiser_id", "date_range"],
       "tertiaryFilters": ["io_id", "advertiser_id"],
+      "dimensions": [
+        {
+          "column": "insertion_order_id",
+          "alias": "Insertion Order"
+        }, {
+          "column": "campaign_id",
+          "alias": "Campaign Id"
+        },
+        {
+          "alias": "Insertion Order",
+          "column": "concat(line_item_name, “ (”, line_item_id, “)”)"
+        },
+        {
+          "alias": "Month",
+          "column": "month"
+        }
+      ],
       "dimensionGroups": [
         {
           "label": "Interval",
-          "selection": "SINGLE",
           "dimensions": [
             {
-              "label": "Day",
               "column": "dayserial_numeric",
               "aias": "day"
             },
             {
-              "label": "Month",
               "column": "month",
               "aias": "month"
-            }
-          ]
-        },
-        {
-          "label": "Rest of them",
-          "selection": "MULTIPLE",
-          "dimensions": [
-            {
-              "column": "insertion_order_id",
-              "alias": "Insertion Order"
-            }, {
-              "column": "campaign_id",
-              "alias": "Campaign Id"
-            },
-            {
-              "alias": "Insertion Order",
-              "column": "concat(line_item_name, “ (”, line_item_id, “)”)"
-            },
-            {
-              "alias": "Month",
-              "column": "month"
             }
           ]
         }
