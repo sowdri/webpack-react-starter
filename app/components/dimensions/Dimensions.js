@@ -19,16 +19,50 @@ class Dimensions extends Component {
       return <div></div>;
 
     const onChange = (dimension, selected) => {
-      console.log(selected);
       dispatch(updateDimension(dimension, selected));
     }
 
-    const items = report.dimensions.map((dimension, index) => {
+    var items = report.dimensions.map((dimension, index) => {
       return (
         <div className="col-sm-2" key={ index }>
           <Dimension label={ dimension.alias } selected={ R.has(dimension.alias)(dimensions) } onChange={ R.curry(onChange)(dimension, R.__) } />
         </div>);
     });
+
+    const dimensionGroups = R.has('dimensionGroups')(report) ? report.dimensionGroups : [];
+    console.log(dimensionGroups);
+    /**
+     * Dimension Groups
+     */
+    const groups = dimensionGroups.map((group) => {
+
+      const groupOnChange = (dimension, selected) => {
+
+        // update the current dimension
+        dispatch(updateDimension(dimension, selected));
+
+        // remove other selected dimension from the group (if any already selected)
+        group.dimensions.forEach((dim) => {
+
+          if (dim.alias == dimension.alias)
+            return;
+
+          if (R.has(dim.alias)(dimensions))
+            dispatch(updateDimension(dim, false));
+        });
+      }
+
+      const groupItems = group.dimensions.map((dimension, index) => {
+        return (
+          <div className="col-sm-2" key={ 'dgi' + index }>
+            <Dimension label={ dimension.alias } selected={ R.has(dimension.alias)(dimensions) } onChange={ R.curry(groupOnChange)(dimension, R.__) } />
+          </div>);
+      });
+
+      return groupItems;
+    });
+
+    items = R.flatten([items, groups]);
 
     return (
       <div className="row">

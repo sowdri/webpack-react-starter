@@ -22,10 +22,6 @@
         {
           "alias": "Insertion Order",
           "column": "concat(line_item_name, “ (”, line_item_id, “)”)"
-        },
-        {
-          "alias": "Month",
-          "column": "month"
         }
       ],
       "dimensionGroups": [
@@ -34,11 +30,11 @@
           "dimensions": [
             {
               "column": "dayserial_numeric",
-              "aias": "day"
+              "alias": "Day"
             },
             {
               "column": "month",
-              "aias": "month"
+              "alias": "Month"
             }
           ]
         }
@@ -81,12 +77,12 @@
             {
               "label": "Day",
               "column": "dayserial_numeric",
-              "aias": "day"
+              "alias": "day"
             },
             {
               "label": "Month",
               "column": "month",
-              "aias": "month"
+              "alias": "month"
             }
           ]
         },
