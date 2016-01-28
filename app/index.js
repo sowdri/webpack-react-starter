@@ -1,6 +1,7 @@
 require('./css/main.css');
 require('bootstrap/dist/css/bootstrap.css');
 require('react-select/dist/react-select.min.css');
+require('react-datepicker/dist/react-datepicker.css');
 
 import React from 'react'
 import { render } from 'react-dom'

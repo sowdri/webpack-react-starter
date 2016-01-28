@@ -8,6 +8,10 @@ import R from 'ramda';
 import SectionHeader from '../SectionHeader';
 import { setReport } from '../../redux/actions'
 import SecondaryFilter from './SecondaryFilter';
+// import DatePicker from 'react-datepicker';
+import DateRangeFilter from './DateRangeFilter';
+import StartDateFilter from './StartDateFilter';
+import EndDateFilter from './EndDateFilter';
 
 class SecondaryFilters extends Component {
 
@@ -21,12 +25,28 @@ class SecondaryFilters extends Component {
     var filterList = <div></div>;
 
 
-    if (R.has('secondaryFilters')(report))
+    if (R.has('secondaryFilters')(report)) {
+
       filterList = report.secondaryFilters.map((filterName, index) => {
+
+        if (filterName == 'date_range') {
+          return [
+            <div className="col-md-3" key='start_date'>
+              <StartDateFilter />
+            </div>,
+            <div className="col-md-3" key='end_date'>
+              <EndDateFilter />
+            </div>];
+        }
+
+
         return (<div className="col-md-3" key={ index }>
                   <SecondaryFilter name={ filterName } />
                 </div>)
         });
+      }
+
+      filterList = R.flatten(filterList);
 
       return (
         <div className="row">
@@ -39,7 +59,6 @@ class SecondaryFilters extends Component {
         </div>
         )
     }
-
   }
 
   SecondaryFilters.propTypes = {
