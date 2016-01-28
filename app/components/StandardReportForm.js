@@ -5,6 +5,7 @@ import PrimaryFilters from './filters/PrimaryFilters';
 import SecondaryFilters from './filters/SecondaryFilters';
 import TertiaryFilters from './filters/TertiaryFilters';
 import Dimensions from './dimensions/Dimensions';
+import Metrics from './metrics/Metrics';
 
 class StandardReportForm extends Component {
 
@@ -20,6 +21,7 @@ class StandardReportForm extends Component {
         <SecondaryFilters />
         <TertiaryFilters />
         <Dimensions />
+        <Metrics />
       </div>
       )
   }

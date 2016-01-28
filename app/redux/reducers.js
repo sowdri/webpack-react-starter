@@ -77,6 +77,31 @@ function dimensions(state = {}, action) {
   }
 }
 
+function metrics(state = {}, action) {
+
+  switch (action.type) {
+    case 'UPDATE_METRIC':
+
+      const {metric, selected} = action;
+      const {alias} = metric;
+
+      // add metric
+      if (selected)
+        return {
+          ...state,
+          ...{
+            [alias]: metric
+          }
+        }
+
+      // remove metric
+      return R.dissoc(alias, state);
+
+    default:
+      return state;
+  }
+}
+
 function report(state = {}, action) {
   switch (action.type) {
     case 'SET_REPORT':
@@ -92,7 +117,8 @@ function standardReport(state = {}, action) {
     ...state,
     filters: filters(state.filters, action),
     report: report(state.report, action),
-    dimensions: dimensions(state.dimensions, action)
+    dimensions: dimensions(state.dimensions, action),
+    metrics: metrics(state.metrics, action)
   }
 }
 

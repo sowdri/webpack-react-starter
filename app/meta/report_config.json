@@ -41,18 +41,14 @@
       ],
       "metrics": [
         {
-          "label": "Impressions",
-          "alias": "imps",
-          "column": "impressions",
-          "aggregate": "sum"
+          "alias": "Impressions",
+          "column": "sum(impressions)"
         },
         {
           "alias": "Clicks",
-          "column": "clicks",
-          "aggregate": "sum"
+          "column": "sum(clicks)"
         },
         {
-
           "alias": "CPM",
           "column": "sum(buyer_spend)/sum(impressions)*1000"
         }

@@ -7,10 +7,6 @@ import R from 'ramda';
 
 class Dimensions extends Component {
 
-  state = {
-    
-  };
-
   render() {
 
     const {dimensions, report, dispatch} = this.props;
