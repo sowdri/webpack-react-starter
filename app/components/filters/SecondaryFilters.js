@@ -9,9 +9,11 @@ import SectionHeader from '../SectionHeader';
 import { setReport } from '../../redux/actions'
 import SecondaryFilter from './SecondaryFilter';
 // import DatePicker from 'react-datepicker';
-import DateRangeFilter from './DateRangeFilter';
-import StartDateFilter from './StartDateFilter';
-import EndDateFilter from './EndDateFilter';
+// import DateRangeFilter from './DateRangeFilter';
+import StartDateFilter from './date/StartDateFilter';
+import EndDateFilter from './date/EndDateFilter';
+
+// import { StartDateFilter, EndDateFilter } from './date';
 
 class SecondaryFilters extends Component {
 
