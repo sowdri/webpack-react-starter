@@ -19,7 +19,7 @@ class Dimension extends Component {
 Dimension.propTypes = {
   label: React.PropTypes.string.isRequired,
   selected: React.PropTypes.bool.isRequired,
-  onChange: React.PropTypes.func.isRequiredred
+  onChange: React.PropTypes.func.isRequired
 };
 
 Dimension.defaultProps = {

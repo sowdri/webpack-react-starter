@@ -19,7 +19,7 @@ class Metric extends Component {
 Metric.propTypes = {
   label: React.PropTypes.string.isRequired,
   selected: React.PropTypes.bool.isRequired,
-  onChange: React.PropTypes.func.isRequiredred
+  onChange: React.PropTypes.func.isRequired
 };
 
 Metric.defaultProps = {

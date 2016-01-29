@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import SingleSelectFilter from './SingleSelectFilter';
 import MultiSelectFilter from './MultiSelectFilter';
-import * as QueryIndex from '../../meta/query';
+import * as QueryIndex from '../../../meta/query';
 import R from 'ramda';
 import S from 'string';
 

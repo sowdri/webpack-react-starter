@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import Filter from '../Filter';
 import ReportFilter from '../ReportFilter';
 import filterConfig from '../../../meta/filter_config.json';
 import reportConfig from '../../../meta/report_config.json';

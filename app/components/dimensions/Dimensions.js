@@ -26,7 +26,7 @@ class Dimensions extends Component {
     });
 
     const dimensionGroups = R.has('dimensionGroups')(report) ? report.dimensionGroups : [];
-    console.log(dimensionGroups);
+
     /**
      * Dimension Groups
      */
