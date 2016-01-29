@@ -102,6 +102,46 @@ function metrics(state = {}, action) {
   }
 }
 
+function dataFilters(state = {}, action) {
+
+  switch (action.type) {
+    case 'UPDATE_DATA_FILTER': {
+
+      let {alias, column, selected, operator, value} = action;
+
+      // add 
+      if (selected)
+        return {
+          ...state,
+          ...{
+            [alias]: {
+              alias,
+              column,
+              operator,
+              value
+            }
+          }
+        }
+
+      // remove 
+      return R.dissoc(alias, state);
+      }
+    case 'UPDATE_METRIC': {
+
+      let {metric, selected} = action;
+      let {alias} = metric;
+
+      // when a metric is removed, remove the data-filter as well
+      if (!selected)
+        return R.dissoc(alias, state);
+
+      return state;
+      }
+    default:
+      return state;
+  }
+}
+
 function report(state = {}, action) {
   switch (action.type) {
     case 'SET_REPORT':
@@ -118,7 +158,8 @@ function standardReport(state = {}, action) {
     filters: filters(state.filters, action),
     report: report(state.report, action),
     dimensions: dimensions(state.dimensions, action),
-    metrics: metrics(state.metrics, action)
+    metrics: metrics(state.metrics, action),
+    dataFilters: dataFilters(state.dataFilters, action)
   }
 }
 

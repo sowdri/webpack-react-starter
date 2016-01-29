@@ -12,6 +12,7 @@ export const UPDATE_SECONDARY_FILTER = 'UPDATE_SECONDARY_FILTER';
 export const SET_REPORT = 'SET_REPORT';
 export const UPDATE_DIMENSION = 'UPDATE_DIMENSION';
 export const UPDATE_METRIC = 'UPDATE_METRIC';
+export const UPDATE_DATA_FILTER = 'UPDATE_DATA_FILTER';
 
 export function updatePrimaryFilter(parameter, value, selectionType) {
   return {
@@ -51,5 +52,16 @@ export function updateMetric(metric, selected) {
     type: UPDATE_METRIC,
     metric,
     selected
+  }
+}
+
+export function updateDataFilter(alias, column, selected, operator, value) {
+  return {
+    type: UPDATE_DATA_FILTER,
+    alias,
+    column,
+    selected,
+    operator,
+    value
   }
 }
